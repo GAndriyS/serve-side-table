@@ -8,13 +8,22 @@ export const routes: Routes = [
   {
     path: 'data-table',
     component: DataTableComponent,
-    children: [{
+    children: [
+      {
       path: 'view/:empId',
       component: EmployeeComponent,
       resolve: {
         employeeData: EmployeeResolver,
       }
-    }]
+    },
+    {
+      path: 'edit/:empId',
+      component: EmployeeComponent,
+      resolve: {
+        employeeData: EmployeeResolver,
+      }
+    }
+    ]
   },
   {
     path: '**',

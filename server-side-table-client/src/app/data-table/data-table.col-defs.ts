@@ -5,8 +5,8 @@ import { ActionTypes } from './data-table.models';
 
 export const COL_DEFS: ColDef[] = [
   {
-    width: 150,
-    minWidth: 100,
+    width: 70,
+    minWidth: 70,
     pinned: 'left',
     headerName: '',
     field: '',
@@ -14,6 +14,18 @@ export const COL_DEFS: ColDef[] = [
     cellRendererFramework: ActionRendererComponent,
     cellRendererParams: {
       actionType: ActionTypes.view
+    }
+  },
+  {
+    width: 70,
+    minWidth: 70,
+    pinned: 'left',
+    headerName: '',
+    field: '',
+    menuTabs: [],
+    cellRendererFramework: ActionRendererComponent,
+    cellRendererParams: {
+      actionType: ActionTypes.edit
     }
   },
   {
@@ -45,8 +57,8 @@ export const COL_DEFS: ColDef[] = [
     menuTabs: []
   },
   {
-    width: 150,
-    minWidth: 100,
+    width: 70,
+    minWidth: 70,
     pinned: 'right',
     headerName: '',
     field: '',

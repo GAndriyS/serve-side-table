@@ -19,6 +19,26 @@
       </mat-list-item>
     </mat-list>
   </mat-card>
+  <mat-card *ngIf="editable">
+    <form [formGroup]="empForm" fxLayout="column" fxLayoutAlign="stretch">
+      <mat-form-field appearance="fill">
+        <mat-label>Employee Name</mat-label>
+        <input matInput formControlName="empName" />
+        <mat-error *ngIf="empForm.get('empName').invalid">
+          <span *ngIf="empForm.get('empName').errors['required']">Please enter an employee name</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Employee Departament</mat-label>
+        <mat-select formControlName="empDepartment">
+          <mat-option *ngFor="let departament of departaments" [value]="departament">
+            {{departament}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-checkbox formControlName="empActive">Employee Is Active</mat-checkbox>
+    </form>
+  </mat-card>
   <a mat-stroked-button [routerLink]="['../../']">
     close
   </a>

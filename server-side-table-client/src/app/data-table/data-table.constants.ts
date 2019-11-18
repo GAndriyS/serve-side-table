@@ -31,3 +31,5 @@ export const GRID_OPTIONS: GridOptions = {
   cacheBlockSize: CACHE_BLOCK_SIZE,
   maxBlocksInCache: MAX_BLOCKS_IN_CACHE
 };
+
+export const DEPARTAMENTS = ['Global Market', 'Entertaiment', 'Production'];

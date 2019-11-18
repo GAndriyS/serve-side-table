@@ -7,4 +7,9 @@
       view
     </a>
   </ng-container>
+  <ng-container *ngSwitchCase="ActionTypes.edit">
+    <a mat-stroked-button [routerLink]="['edit', employeeId]">
+      edit
+    </a>
+  </ng-container>
 </div>
