@@ -17,6 +17,14 @@ app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
 
+app.get('/api/rows', (req, res) => {
+  const empId = parseInt(req.query.empId);
+  const employee = data.filter(
+    emp => emp.empID === empId
+  )[0];
+  res.json(employee)
+});
+
 app.post('/api/rows', (req, res) => {
   const { startRow, endRow } = req.body;
   res.json({

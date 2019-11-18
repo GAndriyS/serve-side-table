@@ -2,4 +2,9 @@
   <ng-container *ngSwitchCase="ActionTypes.delete">
     <button mat-stroked-button (click)="delete()">delete</button>
   </ng-container>
+  <ng-container *ngSwitchCase="ActionTypes.view">
+    <a mat-stroked-button [routerLink]="['view', employeeId]">
+      view
+    </a>
+  </ng-container>
 </div>

@@ -1,0 +1,25 @@
+<div fxLayout="column">
+  <mat-card *ngIf="!editable">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <span class="text--strong">Employee ID: </span>
+        {{employeeData.empID}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <span class="text--strong">Employee Name: </span>
+        {{employeeData.empName}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <span class="text--strong">Is Active: </span>
+        {{employeeData.empActive}}
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <span class="text--strong">Employee's Departament: </span>
+        {{employeeData.empDepartment}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  <a mat-stroked-button [routerLink]="['../../']">
+    close
+  </a>
+</div>

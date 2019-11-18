@@ -7,6 +7,18 @@ export const COL_DEFS: ColDef[] = [
   {
     width: 150,
     minWidth: 100,
+    pinned: 'left',
+    headerName: '',
+    field: '',
+    menuTabs: [],
+    cellRendererFramework: ActionRendererComponent,
+    cellRendererParams: {
+      actionType: ActionTypes.view
+    }
+  },
+  {
+    width: 150,
+    minWidth: 100,
     headerName: 'empID',
     field: 'empID',
     menuTabs: []

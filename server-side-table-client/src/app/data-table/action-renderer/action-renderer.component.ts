@@ -13,6 +13,7 @@ import { DataTableService } from '../data-table.service';
 export class ActionRendererComponent implements ICellRendererAngularComp {
   ActionTypes = ActionTypes;
   actionType: ActionTypes;
+  employeeId: number;
 
   private _params;
 
@@ -21,6 +22,7 @@ export class ActionRendererComponent implements ICellRendererAngularComp {
   agInit(params) {
     this.actionType = params.actionType;
     this._params = params;
+    this.employeeId = params.data.empID;
   }
 
   refresh() {
@@ -29,7 +31,7 @@ export class ActionRendererComponent implements ICellRendererAngularComp {
 
   delete() {
     this._dataTableService
-      .delete(this._params.data.empID)
+      .delete(this.employeeId.toString())
       .subscribe();
   }
 }
