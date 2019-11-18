@@ -6,7 +6,7 @@ export const SINGLE_ROW_HEIGHT = 48;
 export const HEADER_ROW_HEIGHT = 48;
 export const CACHE_BLOCK_SIZE = 100;
 export const MAX_BLOCKS_IN_CACHE = 10;
-export const DATASOURCE_ENDPOINT = '/api/getRows';
+export const DATASOURCE_ENDPOINT = '/api/rows';
 export const GRID_OPTIONS: GridOptions = {
   unSortIcon: false,
 

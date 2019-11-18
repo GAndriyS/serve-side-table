@@ -1,5 +1,8 @@
 import { ColDef } from '@ag-grid-community/core';
 
+import { ActionRendererComponent } from './action-renderer/action-renderer.component';
+import { ActionTypes } from './data-table.models';
+
 export const COL_DEFS: ColDef[] = [
   {
     width: 150,
@@ -28,5 +31,17 @@ export const COL_DEFS: ColDef[] = [
     headerName: 'empDepartment',
     field: 'empDepartment',
     menuTabs: []
-  }
+  },
+  {
+    width: 150,
+    minWidth: 100,
+    pinned: 'right',
+    headerName: '',
+    field: '',
+    menuTabs: [],
+    cellRendererFramework: ActionRendererComponent,
+    cellRendererParams: {
+      actionType: ActionTypes.delete
+    }
+  },
 ];

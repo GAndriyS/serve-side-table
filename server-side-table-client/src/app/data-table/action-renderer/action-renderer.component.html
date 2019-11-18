@@ -1,0 +1,5 @@
+<div [ngSwitch]="actionType" fxFlex="100%" fxLayoutAlign="center center">
+  <ng-container *ngSwitchCase="ActionTypes.delete">
+    <button mat-stroked-button (click)="delete()">delete</button>
+  </ng-container>
+</div>

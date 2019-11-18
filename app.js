@@ -4,7 +4,8 @@ const mysql = require('mysql');
 const path = require('path');
 const cors = require('cors')
 const app = express();
-const { data } = require('./data.js');
+
+let { data } = require('./data.js');
 
 const port = 5000;
 app.set('port', process.env.port || port);
@@ -16,11 +17,19 @@ app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
 
-app.post('/api/getRows', (req, res) => {
+app.post('/api/rows', (req, res) => {
   const { startRow, endRow } = req.body;
   res.json({
     rows: data.slice(startRow, endRow),
     lastRow: endRow >= data.length ? data.length : -1
   })
+});
+
+app.delete('/api/rows', (req, res) => {
+  const empId = parseInt(req.query.empId);
+  data = data.filter(
+    emp => emp.empID !== empId
+  );
+  res.status(200).end()
 });
 

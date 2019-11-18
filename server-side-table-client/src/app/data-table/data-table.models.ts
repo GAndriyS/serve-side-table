@@ -15,3 +15,9 @@ export interface RowDataModel {
   empActive: boolean;
   empDepartment: string;
 }
+
+export enum ActionTypes {
+  view = 'view',
+  edit = 'edit',
+  delete = 'delete'
+}
