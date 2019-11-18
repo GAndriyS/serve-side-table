@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GridOptions, Module } from '@ag-grid-community/core';
 import { HttpClient } from '@angular/common/http';
 import { ServerSideRowModelModule } from '@ag-grid-enterprise//server-side-row-model';
@@ -14,7 +14,7 @@ import {
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss']
 })
-export class DataTableComponent implements OnInit {
+export class DataTableComponent {
   gridOptions: GridOptions;
   modules: Module[] = [ServerSideRowModelModule];
 
@@ -23,16 +23,14 @@ export class DataTableComponent implements OnInit {
   constructor(
     _httpService: HttpClient
   ) {
+    this.gridOptions = GRID_OPTIONS;
     this._datasource = new Datasource(
       _httpService,
       DATASOURCE_ENDPOINT
     );
-
-    this.gridOptions = {
-      ...GRID_OPTIONS,
-      datasource: this._datasource
-    };
   }
 
-  ngOnInit() {}
+  gridReady() {
+    this.gridOptions.api.setServerSideDatasource(this._datasource);
+  }
 }

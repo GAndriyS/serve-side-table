@@ -1,6 +1,6 @@
 {
-  "name": "server-side-table",
-  "version": "0.0.0",
+  "name": "server-side-table-client",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,6 +14,7 @@
     "@ag-grid-community/all-modules": "^22.0.0",
     "@ag-grid-community/angular": "^22.0.0",
     "@ag-grid-enterprise/all-modules": "^22.0.0",
+    "@angular-devkit/build-angular": "^0.803.19",
     "@angular/animations": "~8.2.14",
     "@angular/cdk": "~7.3.7",
     "@angular/common": "~8.2.14",
@@ -31,14 +32,14 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13",
     "@angular/cli": "~8.3.19",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.1",
+    "https-proxy-agent": "^3.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",

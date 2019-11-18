@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { IDatasource, IGetRowsParams } from '@ag-grid-community/core';
+import { IServerSideDatasource, IServerSideGetRowsParams } from '@ag-grid-community/core';
 
 import { ServerSideGetRowsResponse, ServerSideGetRowsRequest } from './data-table.models';
 
-export class Datasource implements IDatasource {
+export class Datasource implements IServerSideDatasource {
   private _httpClient: HttpClient;
   private _fetchEndpoint: string;
   private _quickSearchQuery: string;
-  private _lastParams: IGetRowsParams;
+  private _lastParams: IServerSideGetRowsParams;
 
   constructor(
     httpService: HttpClient,
@@ -17,7 +17,7 @@ export class Datasource implements IDatasource {
     this._fetchEndpoint = fetchEndpoint;
   }
 
-  getRows(params: IGetRowsParams) {
+  getRows(params: IServerSideGetRowsParams) {
     this._lastParams = params;
     this.postRequest();
   }
@@ -29,11 +29,10 @@ export class Datasource implements IDatasource {
 
   postRequest() {
     const reqParams: ServerSideGetRowsRequest = {
-      startRow: this._lastParams.startRow,
-      endRow: this._lastParams.endRow,
+      startRow: this._lastParams.request.startRow,
+      endRow: this._lastParams.request.endRow,
       quickSearch: this._quickSearchQuery
     };
-
     this._httpClient
       .post<ServerSideGetRowsResponse>(`${this._fetchEndpoint}`, reqParams)
       .subscribe(response => {
