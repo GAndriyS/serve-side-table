@@ -17,27 +17,40 @@ app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
 
-app.get('/api/rows', (req, res) => {
-  const empId = parseInt(req.query.empId);
-  const employee = data.filter(
-    emp => emp.empID === empId
-  )[0];
-  res.json(employee)
-});
-
 app.post('/api/rows', (req, res) => {
   const { startRow, endRow } = req.body;
   res.json({
     rows: data.slice(startRow, endRow),
     lastRow: endRow >= data.length ? data.length : -1
-  })
+  });
 });
 
-app.delete('/api/rows', (req, res) => {
-  const empId = parseInt(req.query.empId);
+app.get('/api/row', (req, res) => {
+  const empID = parseInt(req.query.empID);
+  const employee = data.filter(
+    emp => emp.empID === empID
+  )[0];
+  res.json(employee);
+});
+
+app.post('/api/row', (req, res) => {
+  const { empID } = req.body;
+  
+  data = data.map(emp => {
+    if (emp.empID === empID) {
+      return req.body;
+    }
+
+    return emp;
+  });
+  res.status(200).end();
+});
+
+app.delete('/api/row', (req, res) => {
+  const empID = parseInt(req.query.empID);
   data = data.filter(
-    emp => emp.empID !== empId
+    emp => emp.empID !== empID
   );
-  res.status(200).end()
+  res.status(200).end();
 });
 

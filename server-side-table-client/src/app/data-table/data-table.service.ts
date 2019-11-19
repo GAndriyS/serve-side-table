@@ -5,6 +5,7 @@ import { GridOptions } from '@ag-grid-community/core';
 
 import { Datasource } from './data-table.datasource';
 import { DATASOURCE_ENDPOINT } from './data-table.constants';
+import { RowDataModel } from './data-table.models';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,21 @@ export class DataTableService {
     return this._datasource;
   }
 
-  delete(empId: string) {
+  update(empData: RowDataModel) {
+    return this._httpService.post<RowDataModel>('/api/row', empData)
+      .pipe(tap(() => this._datasource.retrieveRows()));;
+  }
+
+  getEmployeeData(empID: string) {
+    return this._httpService.get<RowDataModel>('/api/row', {
+      params: { empID }
+    });
+  }
+
+  delete(empID: string) {
     return this._httpService
-      .delete('/api/rows', {
-        params: { empId }
+      .delete('/api/row', {
+        params: { empID }
       })
       .pipe(tap(() => this._datasource.retrieveRows()));
   }

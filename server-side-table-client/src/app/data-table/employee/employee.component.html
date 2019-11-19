@@ -39,6 +39,9 @@
       <mat-checkbox formControlName="empActive">Employee Is Active</mat-checkbox>
     </form>
   </mat-card>
+  <a mat-stroked-button (click)="save()" *ngIf="editable">
+    save
+  </a>
   <a mat-stroked-button [routerLink]="['../../']">
     close
   </a>
