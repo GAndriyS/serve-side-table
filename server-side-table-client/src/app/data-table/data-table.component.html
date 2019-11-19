@@ -1,6 +1,15 @@
-<ag-grid-angular class="app-ag-grid ag-theme-balham-dark"
-  [gridOptions]="gridOptions"
-  [modules]="modules"
-  (gridReady)="gridReady()"
-></ag-grid-angular>
-<router-outlet></router-outlet>
+
+<div fxLayout="row" fxLayoutGap="20px">
+  <ag-grid-angular class="app-ag-grid ag-theme-balham-dark"
+    [gridOptions]="gridOptions"
+    [modules]="modules"
+    (gridReady)="gridReady()"
+  ></ag-grid-angular>
+  <div fxLayout="column">
+    <mat-form-field appearance="fill" fxfxFlex="100%">
+      <mat-label>Search By Employee Name</mat-label>
+      <input matInput (input)="quickSearch($event.target.value)" />
+    </mat-form-field>
+    <router-outlet></router-outlet>
+  </div>
+</div>

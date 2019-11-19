@@ -22,9 +22,13 @@ export class DataTableService {
     return this._datasource;
   }
 
+  quickSearch(query: string) {
+    this._datasource.quickSearch(query);
+  }
+
   update(empData: RowDataModel) {
     return this._httpService.post<RowDataModel>('/api/row', empData)
-      .pipe(tap(() => this._datasource.retrieveRows()));;
+      .pipe(tap(() => this._datasource.retrieveRows()));
   }
 
   getEmployeeData(empID: string) {

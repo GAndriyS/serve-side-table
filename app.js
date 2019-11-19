@@ -18,10 +18,16 @@ app.listen(port, () => {
 });
 
 app.post('/api/rows', (req, res) => {
-  const { startRow, endRow } = req.body;
+  const { startRow, endRow, quickSearch } = req.body;
+  let rows = data;
+
+  if (quickSearch) {
+    rows = rows.filter(row => row.empName.indexOf(quickSearch, 0) === 0)
+  }
+
   res.json({
-    rows: data.slice(startRow, endRow),
-    lastRow: endRow >= data.length ? data.length : -1
+    rows: rows.slice(startRow, endRow),
+    lastRow: endRow >= rows.length ? rows.length : -1
   });
 });
 

@@ -17,8 +17,6 @@ export class ActionRendererComponent implements ICellRendererAngularComp {
 
   private _params;
 
-  constructor(private _dataTableService: DataTableService) {}
-
   agInit(params) {
     this.actionType = params.actionType;
     this._params = params;
@@ -30,8 +28,6 @@ export class ActionRendererComponent implements ICellRendererAngularComp {
   }
 
   delete() {
-    this._dataTableService
-      .delete(this.employeeId.toString())
-      .subscribe();
+    this._params.delete();
   }
 }
