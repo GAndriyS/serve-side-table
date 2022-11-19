@@ -14,7 +14,7 @@
     "@ag-grid-community/all-modules": "^22.0.0",
     "@ag-grid-community/angular": "^22.0.0",
     "@ag-grid-enterprise/all-modules": "^22.0.0",
-    "@angular-devkit/build-angular": "^0.803.19",
+    "@angular-devkit/build-angular": "^15.0.0",
     "@angular/flex-layout": "^8.0.0-beta.27",
     "@angular/animations": "~8.2.14",
     "@angular/cdk": "~7.3.7",
